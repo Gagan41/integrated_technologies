@@ -73,11 +73,11 @@ const Contact = () => {
                 Get in Touch
               </span>
 
-              <h1 className="text-3xl md:text-5xl font-bold mt-2">
+              <h1 className="text-3xl md:text-5xl font-bold mt-2 text-gray-900">
                 Let’s Solve Your Technology Needs
               </h1>
 
-              <p className="text-gray-400 mt-4 text-sm md:text-base">
+              <p className="text-gray-600 mt-4 text-sm md:text-base">
                 Contact Integrated Technologies for product sales, repair
                 services, AMC contracts, and technical consultation. Our team
                 responds quickly and professionally.
@@ -95,7 +95,7 @@ const Contact = () => {
                   href="https://maps.app.goo.gl/pMncUKVnUiTzceBx6" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors text-left"
+                  className="hover:text-accent transition-colors text-left text-gray-700"
                 >
                   Shankarnag Circle, 2nd Block, Ashok Nagar, Banashankari 1st Stage, Banashankari, Bengaluru, Karnataka 560050
                 </a>
@@ -108,7 +108,7 @@ const Contact = () => {
                   <h3 className="font-semibold">Call Us</h3>
                   <a 
                   href="tel:+919845125274" 
-                  className="hover:text-accent transition-colors text-left"
+                  className="hover:text-accent transition-colors text-left text-gray-700"
                 >
                   +91 98451 25274
                 </a>
@@ -121,7 +121,7 @@ const Contact = () => {
                   <h3 className="font-semibold">Email</h3>
                   <a 
                   href="mailto:dinesh@integratedtech.co.in" 
-                  className="hover:text-accent transition-colors text-left"
+                  className="hover:text-accent transition-colors text-left text-gray-700"
                 >
                  dinesh@integratedtech.co.in 
                 </a>
@@ -135,7 +135,7 @@ const Contact = () => {
 
               <a
                 href="tel:+919845125274"
-                className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-accent transition text-sm font-semibold"
+                className="px-5 py-3 rounded-xl bg-gray-100 border border-gray-200 hover:border-accent transition text-sm font-semibold text-gray-900"
               >
                 📞 Call Now
               </a>
@@ -144,7 +144,7 @@ const Contact = () => {
                 href="https://wa.me/919845125274"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-xl bg-green-500/10 border border-green-400/20 hover:border-green-400 transition text-sm font-semibold flex items-center gap-2"
+                className="px-5 py-3 rounded-xl bg-green-50 border border-green-200 hover:border-green-400 transition text-sm font-semibold flex items-center gap-2 text-green-700"
               >
                 <MessageCircle size={16} />
                 WhatsApp
@@ -154,7 +154,7 @@ const Contact = () => {
 
             {/* Trust Line */}
             <p className="text-xs text-gray-500 pt-2">
-              Trusted by businesses since 2002 • Fast response • Professional service
+              Trusted by businesses since 2000 • Fast response • Professional service
             </p>
           </motion.div>
 
@@ -164,32 +164,33 @@ const Contact = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
+
             onSubmit={handleSubmit}
-            className="bg-white/5 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-2xl shadow-xl space-y-5"
+            className="bg-white/80 backdrop-blur-md border border-gray-200 p-6 md:p-8 rounded-2xl shadow-xl space-y-5"
           >
             {inputs.map((inp, i) => (
               <div key={i} className="space-y-1">
-                <label className="text-sm text-gray-300">{inp.label}</label>
+                <label className="text-sm text-gray-700">{inp.label}</label>
                 <input
                   type={inp.type}
                   name={inp.name}
                   value={formData[inp.name]}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent placeholder-gray-400"
                 />
               </div>
             ))}
 
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Message</label>
+              <label className="text-sm text-gray-700">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
                 required
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent resize-none"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent resize-none placeholder-gray-400"
               />
             </div>
 

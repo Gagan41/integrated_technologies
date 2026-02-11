@@ -5,22 +5,22 @@ const Logo = ({ className = "", align = "items-end" }) => {
     <div
       className={`flex flex-col ${align} leading-none select-none ${className}`}
     >
-      <div className="flex items-center gap-[2px]">
-        {/* "INTEGRA" part in white/light grey for dark mode */}
-        <span className="font-sans text-2xl md:text-3xl font-normal tracking-wide text-gray-400">
+      <div className="flex items-center">
+        {/* "INTEGRA" part in dark grey for light mode */}
+        <span className="font-sans text-2xl md:text-3xl font-normal tracking-tight text-gray-600">
           INTEGRA
         </span>
         {/* "TED" part in bright blue */}
-        <span className="font-sans text-2xl md:text-3xl font-bold tracking-wide text-blue-800">
+        <span className="font-sans text-2xl md:text-3xl font-bold tracking-tight text-blue-900">
           TED
         </span>
       </div>
 
       {/* Underline in bright blue */}
-      <div className="w-full h-[2px] bg-blue-500 mt-0.5 mb-0.5"></div>
+      <div className="w-full h-[2px] bg-blue-900 mt-1 mb-1"></div>
 
-      {/* "Technologies" part in white/light grey, aligned right */}
-      <span className="font-sans text-[10px] md:text-xs font-semibold tracking-wider text-gray-400 uppercase">
+      {/* "Technologies" part in dark grey, aligned right */}
+      <span className="font-sans text-[10px] md:text-xs font-bold tracking-wide text-gray-600">
         Technologies
       </span>
     </div>

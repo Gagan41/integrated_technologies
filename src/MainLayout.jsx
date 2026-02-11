@@ -38,8 +38,8 @@ const MainLayout = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled || isOpen
-            ? "bg-background backdrop-blur-md border-b border-white/10"
-            : "bg-background md:bg-transparent"
+            ? "bg-background/80 backdrop-blur-md border-b border-gray-200"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center h-full">
@@ -58,7 +58,7 @@ const MainLayout = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-accent font-semibold"
-                    : "text-gray-300 hover:text-white transition font-medium"
+                    : "text-gray-600 hover:text-primary transition font-medium"
                 }
               >
                 {link.name}
@@ -79,7 +79,7 @@ const MainLayout = () => {
 
           {/* MOBILE MENU OPEN */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 text-white"
+            className="md:hidden p-2 rounded-lg hover:bg-black/5 text-gray-700"
             onClick={() => setIsOpen(true)}
           >
             <Menu size={26} />
@@ -99,7 +99,7 @@ const MainLayout = () => {
             {/* CLOSE BUTTON — ALWAYS VISIBLE */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-white bg-white/10 p-2 rounded-lg hover:bg-white/20 transition"
+              className="absolute top-6 right-6 text-gray-600 bg-black/5 p-2 rounded-lg hover:bg-black/10 transition"
             >
               <X size={28} />
             </button>
@@ -113,7 +113,7 @@ const MainLayout = () => {
                   className={({ isActive }) =>
                     isActive
                       ? "text-accent font-semibold"
-                      : "text-white font-medium"
+                      : "text-gray-800 font-medium"
                   }
                 >
                   {link.name}

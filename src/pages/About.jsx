@@ -11,8 +11,8 @@ const About = () => {
                 className="text-center mb-16 space-y-6"
             >
                 <span className="text-accent font-semibold tracking-wider uppercase text-sm">Our Story</span>
-                <h1 className="text-4xl md:text-5xl font-bold">Empowering Your Digital Journey Since 2000</h1>
-                <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Empowering Your Digital Journey Since 2000</h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Integrated Technologies, founded by Dinesh Gurumurthy, began its journey in 2000 with a clear vision to provide unparalleled support to those grappling with computer-related challenges.
                 </p>
             </motion.div>
@@ -31,21 +31,21 @@ const About = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.1 }}
-                        className="p-6 bg-white/5 border border-white/10 rounded-2xl text-center group hover:bg-white/10 transition-colors"
+                        className="p-6 bg-white border border-gray-200 rounded-2xl text-center group hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
                     >
-                        <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary group-hover:scale-110 transition-transform">
                             <stat.icon size={24} />
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-1">{stat.val}</h3>
-                        <p className="text-gray-400 text-sm">{stat.label}</p>
+                        <h3 className="text-3xl font-bold text-gray-900 mb-1">{stat.val}</h3>
+                        <p className="text-gray-500 text-sm">{stat.label}</p>
                     </motion.div>
                 ))}
             </div>
 
             {/* Content Section */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6 text-gray-300 leading-relaxed">
-                    <h2 className="text-3xl font-bold text-white mb-4">Why Choose Integrated Technologies?</h2>
+                <div className="space-y-6 text-gray-600 leading-relaxed">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Integrated Technologies?</h2>
                     <p>
                         We work with a passion for embracing challenges and innovating new solutions in the IT sector. Our commitment to quality, coupled with our extensive experience and partnerships with leading tech brands, ensures that you receive unparalleled service and support tailored to your specific needs.
                     </p>
@@ -66,11 +66,11 @@ const About = () => {
                 </div>
 
                 <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-2xl transform rotate-3 opacity-20 blur-lg" />
-                    <div className="relative bg-gray-900 border border-white/10 rounded-2xl p-8 aspect-video flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-2xl transform rotate-3 opacity-10 blur-lg" />
+                    <div className="relative bg-white border border-gray-200 shadow-xl rounded-2xl p-8 aspect-video flex items-center justify-center">
                         <div className="text-center">
-                            <p className="text-6xl font-bold text-white/40 mb-2">2000</p>
-                            <p className="text-xl font-semibold">Established Year</p>
+                            <p className="text-6xl font-bold text-gray-400 mb-2">2000</p>
+                            <p className="text-xl font-semibold text-gray-900">Established Year</p>
                             <p className="text-sm text-gray-500 mt-2">Dinesh Gurumurthy - Founder</p>
                         </div>
                     </div>

@@ -7,12 +7,12 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: '#0f172a', // Deep slate/navy background
+                background: '#ffffff', // White background for light theme
                 primary: '#2563eb',    // Vivid blue
                 secondary: '#7c3aed',  // Violet
                 accent: '#22d3ee',     // Cyan
-                glass: 'rgba(255, 255, 255, 0.1)',
-                'glass-heavy': 'rgba(255, 255, 255, 0.2)',
+                glass: 'rgba(0, 0, 0, 0.05)', // Darker glass for light bg
+                'glass-heavy': 'rgba(0, 0, 0, 0.1)', // Heavier dark glass
             },
             fontFamily: {
                 sans: ['"Plus Jakarta Sans"', 'sans-serif'],

@@ -61,11 +61,11 @@ const Services = () => {
             What We Do
           </span>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4 text-gray-900">
             Complete Technology Solutions
           </h1>
 
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             From product sales to expert repair and enterprise-grade IT
             solutions — we deliver reliable technology services tailored to your
             needs.
@@ -81,18 +81,19 @@ const Services = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="group relative p-6 md:p-8 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-primary/50 transition-all flex flex-col h-full"
+
+              className="group relative p-6 md:p-8 bg-white border border-gray-200 rounded-2xl hover:border-primary/50 transition-all flex flex-col h-full shadow-sm hover:shadow-lg"
             >
               <div className="relative z-10 flex flex-col h-full">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center mb-5 text-white border border-white/10 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center mb-5 text-primary border border-gray-100 group-hover:scale-105 transition-transform">
                   <srv.icon size={24} />
                 </div>
 
-                <h3 className="text-lg md:text-xl font-semibold mb-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900">
                   {srv.title}
                 </h3>
 
-                <p className="text-gray-400 mb-5 text-sm md:text-base flex-grow leading-relaxed">
+                <p className="text-gray-600 mb-5 text-sm md:text-base flex-grow leading-relaxed">
                   {srv.desc}
                 </p>
 
@@ -114,11 +115,11 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-gray-900">
             Need a Custom Technology Solution?
           </h2>
 
-          <p className="text-gray-400 mb-7 text-sm sm:text-base">
+          <p className="text-gray-600 mb-7 text-sm sm:text-base">
             Talk to our experts today and get tailored IT solutions, professional
             repair services, and long-term technology support.
           </p>
