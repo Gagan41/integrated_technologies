@@ -56,6 +56,18 @@ const REVIEWS = [
     rating: 5,
     text: "Best PC component prices in the area. Got my gaming rig upgraded here. Dinesh's cable management is top-notch!",
   },
+  {
+    name: "Anil",
+    date: "5 years ago",
+    rating: 5,
+    text: "Accurate solutions no false promises on time delivery I happy with their punchality",
+  },
+  {
+    name: "Yogesh Sharma J",
+    date: "4 years ago",
+    rating: 5,
+    text: "Good staff and Nice place to buy all types of computer items",
+  },
 ];
 
 const Reviews = () => {
@@ -106,7 +118,7 @@ const Reviews = () => {
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 40,
+                duration: 80,
                 ease: "linear",
               },
             }}
