@@ -31,7 +31,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus("loading");
 
-    const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const API_BASE_URL = import.meta.env.VITE_API_URL || "https://integrated-technologies.onrender.com";
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/send-email`, {
