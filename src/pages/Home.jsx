@@ -42,7 +42,7 @@ const Home = () => {
             </h1>
 
             <p className="text-lg text-gray-400 max-w-lg mx-auto md:mx-0">
-              Integrated Technologies — Empowering your digital journey with
+              Integrated Technologies, Empowering your digital journey with
               expert service, advanced repair, and reliable solutions.
             </p>
 
