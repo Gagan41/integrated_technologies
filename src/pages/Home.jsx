@@ -10,6 +10,7 @@ import {
   HardDrive,
   Monitor,
   Smartphone,
+  Award,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reviews from "../components/Reviews";
@@ -157,7 +158,7 @@ const Home = () => {
               { icon: ShieldCheck, title: "AMC Plans", desc: "Business maintenance plans." },
               { icon: Wrench, title: "Expert Repair", desc: "Chip-level diagnostics." },
               { icon: Monitor, title: "Software", desc: "OS, antivirus & business apps." },
-              { icon: Smartphone, title: "Mobile Service", desc: "Advanced phone repair." },
+              { icon: Award, title: "Authorized Partner", desc: "Trusted partner for top global tech brands." },
             ].map((s, i) => (
               <div
                 key={i}

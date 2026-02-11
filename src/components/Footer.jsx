@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 import {
   Facebook,
   Twitter,
@@ -23,14 +24,10 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
 
           {/* Brand */}
-          <div>
-            <Link
-              to="/"
-              className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-4 inline-block"
-            >
-              Integrated Technologies
+          <div className="flex flex-col items-start">
+            <Link to="/" className="mb-6 inline-block">
+              <Logo />
             </Link>
-
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
               Delivering innovative IT solutions, reliable technology services,
               and expert support to empower your digital journey.
