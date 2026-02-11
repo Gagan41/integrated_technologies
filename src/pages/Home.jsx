@@ -12,6 +12,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import Reviews from "../components/Reviews";
 
 const Home = () => {
   return (
@@ -170,6 +171,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ================= REVIEWS ================= */}
+      <Reviews />
 
       {/* ================= CTA ================= */}
       <section className="py-20 md:py-28 text-center">
