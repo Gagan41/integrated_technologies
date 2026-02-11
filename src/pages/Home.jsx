@@ -87,7 +87,7 @@ const Home = () => {
                 <ShieldCheck className="text-white w-4 h-4 md:w-5 md:h-5" />
                 <div>
                   <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">Experience</p>
-                  <p className="font-semibold text-sm md:text-base">22+ Years</p>
+                  <p className="font-semibold text-sm md:text-base">25+ Years</p>
                 </div>
               </motion.div>
 
