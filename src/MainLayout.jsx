@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation, Outlet } from "react-router-dom";
+import { NavLink, useLocation, Outlet, useNavigate } from "react-router-dom";
 import { Menu, X, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./components/Footer";
@@ -9,6 +9,7 @@ const MainLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -43,7 +44,6 @@ const MainLayout = () => {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center h-full">
-
           {/* LOGO */}
           <NavLink to="/" className="flex items-center gap-3">
             <Logo />
@@ -68,6 +68,7 @@ const MainLayout = () => {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
+              onClick={() => navigate("/contact")}
               className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white text-sm font-medium"
             >
               <div className="flex items-center gap-2">

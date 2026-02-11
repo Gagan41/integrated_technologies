@@ -8,10 +8,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Environment Variable Validation
+const requiredEnvVars = ["EMAIL_USER", "EMAIL_PASS", "RECEIVER_EMAIL"];
+const missingEnvVars = requiredEnvVars.filter((varName) => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error(`FATAL ERROR: Missing environment variables: ${missingEnvVars.join(", ")}`);
+  process.exit(1);
+}
+
 // Middleware
 const allowedOrigins = [
   "http://localhost:5173", // Vite default dev port
-  "https://integrated-technologies.onrender.com", // Example production URL (update this after deployment)
+  "https://integrated-technologies.onrender.com", // Backend Render URL
+  "https://integratedtech.co.in", // Production Frontend (CPanel)
+  "http://integratedtech.co.in", // Production Frontend (CPanel) - Non-SSL fallback
   /\.onrender\.com$/, // Allow all onrender subdomains
 ];
 
@@ -41,11 +52,17 @@ app.use(
 app.use(express.json());
 
 // Nodemailer Transporter
+// Nodemailer Transporter with Connection Pooling
 const transporter = nodemailer.createTransport({
-  service: "gmail", // You can change this to your email provider
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // Use SSL/TLS
+  pool: true,   // Enable connection pooling for faster subsequent sends
+  maxConnections: 5,
+  maxMessages: 100,
   auth: {
-    user: process.env.EMAIL_USER, // Your email address
-    pass: process.env.EMAIL_PASS, // Your email password or app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -57,15 +74,21 @@ transporter.verify(function (error, success) {
     console.log("Server is ready to take our messages");
   }
 });
+app.get("/", (req, res) => {
+  res.send(
+    "Integrated Technologies API is running. Visit the frontend for the full site.",
+  );
+});
 
 // API Routes
 app.post("/api/send-email", async (req, res) => {
   const { name, email, phone, subject, message } = req.body;
 
   const mailOptions = {
-    from: `"${name}" <${email}>`, // Sender address
-    to: process.env.RECEIVER_EMAIL, // List of receivers
-    subject: `New Contact Form Submission: ${subject}`, // Subject line
+    from: `"${name}" <${process.env.EMAIL_USER}>`, // Must be the authenticated user for Gmail
+    replyTo: email, // The user's email so the receiver can reply
+    to: process.env.RECEIVER_EMAIL,
+    subject: `New Contact Form Submission: ${subject}`,
     text: `
       Name: ${name}
       Email: ${email}
@@ -87,14 +110,40 @@ app.post("/api/send-email", async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    const startTime = Date.now();
+    console.log(`Starting email send for: ${email}`);
+    
+    const info = await transporter.sendMail(mailOptions);
+    
+    const duration = Date.now() - startTime;
+    console.log(`Email sent successfully in ${duration}ms. MessageId: ${info.messageId}`);
+    
     res
       .status(200)
       .json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email details:", {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      stack: error.stack
+    });
     res.status(500).json({ success: false, message: "Failed to send email." });
   }
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error("Unhandled Backend Error:", {
+    message: err.message,
+    stack: err.stack,
+    path: req.path,
+    method: req.method,
+  });
+  res.status(500).json({
+    success: false,
+    message: "An internal server error occurred.",
+  });
 });
 
 // Start Server
