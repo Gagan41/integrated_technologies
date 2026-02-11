@@ -75,7 +75,7 @@ const Reviews = () => {
   const scrollReviews = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-background to-black relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-background to-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
@@ -101,7 +101,7 @@ const Reviews = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg"
+            className="text-gray-600 text-lg"
           >
             Real reviews from our satisfied customers on Google.
           </motion.p>
@@ -126,9 +126,9 @@ const Reviews = () => {
             {scrollReviews.map((review, i) => (
               <div
                 key={i}
-                className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] flex flex-col w-[350px] md:w-[450px] h-[320px] shrink-0 whitespace-normal"
+                className="group relative p-8 rounded-3xl bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-lg flex flex-col w-[350px] md:w-[450px] h-[320px] shrink-0 whitespace-normal"
               >
-                <div className="absolute -top-6 left-8 bg-black border border-white/10 p-3 rounded-2xl shadow-xl z-20">
+                <div className="absolute -top-6 left-8 bg-white border border-gray-200 p-3 rounded-2xl shadow-lg z-20">
                   <Quote className="text-accent w-6 h-6 fill-accent/20" />
                 </div>
 
@@ -144,18 +144,18 @@ const Reviews = () => {
 
                 {/* Text */}
                 <div className="flex-grow overflow-hidden">
-                  <p className="text-gray-300 leading-relaxed line-clamp-4">
+                  <p className="text-gray-600 leading-relaxed line-clamp-4">
                     "{review.text}"
                   </p>
                 </div>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 mt-6 pt-6 border-t border-white/5">
+                <div className="flex items-center gap-4 mt-6 pt-6 border-t border-gray-100">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold shrink-0">
                     {review.name[0]}
                   </div>
                   <div className="min-w-0">
-                    <h4 className="font-semibold text-white truncate">
+                    <h4 className="font-semibold text-gray-900 truncate">
                       {review.name}
                     </h4>
                     <p className="text-xs text-gray-500">{review.date}</p>
@@ -186,7 +186,7 @@ const Reviews = () => {
             href="https://maps.app.goo.gl/pMncUKVnUiTzceBx6"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 font-medium text-white"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white border border-gray-200 hover:bg-gray-50 hover:scale-105 transition-all duration-300 font-medium text-gray-900 shadow-sm"
           >
             Read more reviews on
             <span className="font-bold flex items-center gap-1">
