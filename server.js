@@ -22,7 +22,9 @@ const allowedOrigins = [
   "http://localhost:5173", // Vite default dev port
   "https://integrated-technologies.onrender.com", // Backend Render URL
   "https://integratedtech.co.in", // Production Frontend (CPanel)
-  "http://integratedtech.co.in", // Production Frontend (CPanel) - Non-SSL fallback
+  "https://www.integratedtech.co.in", // Production Frontend (WWW)
+  "http://integratedtech.co.in", // Production Frontend (Non-SSL fallback)
+  "http://www.integratedtech.co.in", // Production Frontend (Non-SSL WWW)
   /\.onrender\.com$/, // Allow all onrender subdomains
 ];
 
@@ -31,32 +33,45 @@ app.use(
     origin: function (origin, callback) {
       // allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
-      if (
-        allowedOrigins.some((allowed) =>
-          allowed instanceof RegExp ? allowed.test(origin) : allowed === origin,
-        )
-      ) {
-        return callback(null, true);
-      }
-      return callback(
-        new Error(
-          "The CORS policy for this site does not allow access from the specified Origin.",
-        ),
-        false,
+      
+      const isAllowed = allowedOrigins.some((allowed) =>
+        allowed instanceof RegExp ? allowed.test(origin) : allowed === origin
       );
+
+      if (isAllowed) {
+        return callback(null, true);
+      } else {
+        console.warn(`CORS BLOCKED: Origin ${origin} not in allowedOrigins`);
+        // Return error with status 403 instead of letting it throw a 500
+        return callback(new Error("CORS_POLICY_VIOLATION"), false);
+      }
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+
+// Custom Error Handler for CORS to avoid 500
+app.use((err, req, res, next) => {
+  if (err.message === "CORS_POLICY_VIOLATION") {
+    return res.status(403).json({
+      success: false,
+      message: "The CORS policy for this site does not allow access from the specified Origin.",
+      origin: req.headers.origin
+    });
+  }
+  next(err);
+});
+
 app.use(express.json());
 
 // Nodemailer Transporter
 // Nodemailer Transporter with Connection Pooling
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // Use SSL/TLS
+  port: 587,
+  secure: false, // Use STARTTLS (standard for port 587)
+  family: 4,     // Force IPv4 to avoid ENETUNREACH on Render IPv6 networks
   pool: true,   // Enable connection pooling for faster subsequent sends
   maxConnections: 5,
   maxMessages: 100,
